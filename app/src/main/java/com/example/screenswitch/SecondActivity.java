@@ -1,52 +1,28 @@
 package com.example.screenswitch;
 
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-
+import android.content.Intent;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.screenswitch.databinding.ActivitySecondBinding;
-
 public class SecondActivity extends AppCompatActivity {
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivitySecondBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
 
-        binding = ActivitySecondBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        TextView infoTextView = findViewById(R.id.textViewInfo);
 
-        setSupportActionBar(binding.toolbar);
+        Intent intent = getIntent();
+        String user = intent.getStringExtra("username");
+        String gift = intent.getStringExtra("gift");
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_second);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        // Отправитель
+        String sender = intent.getStringExtra("sender");
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_second);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+        // Формируем строку и выводим на экран
+        String finalMessage = user + ", вам передали: " + gift + "\n\nОтправитель: " + sender;
+        infoTextView.setText(finalMessage);
     }
 }
