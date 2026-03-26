@@ -7,10 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Горизонтальная направляющая на 20% от верха экрана -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <EditText
+        android:id="@+id/editTextUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Кому"
+        app:layout_constraintBottom_toTopOf="@+id/editTextGift"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top" />
+
     <EditText
         android:id="@+id/editTextGift"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:hint="Описание"
@@ -22,7 +43,7 @@
     <EditText
         android:id="@+id/editTextSender"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="75dp"
@@ -32,18 +53,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGift" />
 
-    <EditText
-        android:id="@+id/editTextUser"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Кому"
-        app:layout_constraintBottom_toTopOf="@+id/editTextGift"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_about"
@@ -71,8 +80,8 @@
 
     <Button
         android:id="@+id/button_send_data"
-        android:layout_width="177dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="43dp"
         android:text="ПЕРЕДАТЬ"
         app:layout_constraintBottom_toTopOf="@+id/button_about"
