@@ -27,7 +27,7 @@
         <activity
             android:name=".AboutActivity"
             android:label="@string/about_title"
-            android:theme="@style/Theme.AppCompat.Dialog">
+            android:theme="@style/CustomDialogTheme">
         </activity>
     </application>
 

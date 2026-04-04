@@ -5,5 +5,16 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.ScreenSwitch" parent="Base.Theme.ScreenSwitch" />
+    <style name="Theme.ScreenSwitch" parent="Base.Theme.ScreenSwitch"/>
+
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Белый фон -->
+        <item name="android:windowBackground">@android:color/white</item>
+        <!-- Убираем серую обводку -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Делаем фон полностью непрозрачным -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- Цвет заголовка -->
+        <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
 </resources>
